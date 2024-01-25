@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Valeter.API.Data;
 using Valeter.API.Models;
 
 namespace Valeter.API.Controllers
@@ -11,41 +12,44 @@ namespace Valeter.API.Controllers
     [Route("api/[controller]")]
     public class ClientController : ControllerBase
     {
-        public IEnumerable<Client> _cliente = new Client[] {
-                new Client() {
-                    ClientId = 1,
-                    ClientName = "Cliente 1",
-                    ClientLocation = "Location 1",
-                    ClientAddressLine1 = "Address Line 1",
-                    ClientAddressLine2 = "Address Line 2",
-                    ClientAddressNumber = "123",
-                    ClientTown = "Bristol",
-                    ClientPostalCode = "BS00 0AA",
-                    ClientCountry = 1,
-                    ClientPhone = "11111-11111",
-                    ClientEmail = "email@email.com",
-                    LogoUrl = "URL Logo",
-                    CompanyId = 1 
-                },
-                new Client() {
-                    ClientId = 2,
-                    ClientName = "Cliente 2",
-                    ClientLocation = "Location 2",
-                    ClientAddressLine1 = "Address Line 1",
-                    ClientAddressLine2 = "Address Line 2",
-                    ClientAddressNumber = "321",
-                    ClientTown = "Bristol",
-                    ClientPostalCode = "BS00 0BB",
-                    ClientCountry = 1,
-                    ClientPhone = "22222-11111",
-                    ClientEmail = "email2@email.com",
-                    LogoUrl = "URL Logo 2",
-                    CompanyId = 2
-                }
-            };
+        public IEnumerable<Client> _client = new Client[] {
+            new Client() {
+                ClientId = 1,
+                ClientName = "Cliente 1",
+                ClientLocation = "Location 1",
+                ClientAddressLine1 = "Address Line 1",
+                ClientAddressLine2 = "Address Line 2",
+                ClientAddressNumber = "123",
+                ClientTown = "Bristol",
+                ClientPostalCode = "BS00 0AA",
+                ClientCountry = 1,
+                ClientPhone = "11111-11111",
+                ClientEmail = "email@email.com",
+                LogoUrl = "URL Logo",
+                CompanyId = 1 
+            },
+            new Client() {
+                ClientId = 2,
+                ClientName = "Cliente 2",
+                ClientLocation = "Location 2",
+                ClientAddressLine1 = "Address Line 1",
+                ClientAddressLine2 = "Address Line 2",
+                ClientAddressNumber = "321",
+                ClientTown = "Bristol",
+                ClientPostalCode = "BS00 0BB",
+                ClientCountry = 1,
+                ClientPhone = "22222-11111",
+                ClientEmail = "email2@email.com",
+                LogoUrl = "URL Logo 2",
+                CompanyId = 2
+            }
+        };
 
-        public ClientController()
+        private readonly DataContext _context;
+
+        public ClientController(DataContext context)
         {
+            _context = context;
         }
 
         [HttpPost]
@@ -57,13 +61,13 @@ namespace Valeter.API.Controllers
         [HttpGet]
         public IEnumerable<Client> Get()
         {
-            return _cliente;
+            return _context.Clients;
         }
 
         [HttpGet("{id}")]
         public IEnumerable<Client> GetById(int id)
         {
-            return _cliente.Where(client => client.ClientId == id);
+            return _context.Clients.Where(client => client.ClientId == id);
         }
 
         [HttpPut("id")]
