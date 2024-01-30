@@ -8,8 +8,8 @@ namespace Valeter.API.Models
     public class Client
     {
         public int ClientId { get; set; }
-         public string ClientName { get; set; }
-        public string ClientLocation { get; set; }
+        public string ClientName { get; set; }
+        //public string ClientBrandId { get; set; }
         public string ClientAddressLine1 { get; set; }
         public string ClientAddressLine2 { get; set; }
         public string ClientAddressNumber { get; set; }

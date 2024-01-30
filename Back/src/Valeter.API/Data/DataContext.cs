@@ -22,9 +22,9 @@ namespace Valeter.API.Data
         public DbSet<Vehicle> Vehicles { get; set; }
         public DbSet<VehicleManufacturer> VehicleManufacturers { get; set; }
         public DbSet<VehicleType> VehicleTypes { get; set; }
-        public DbSet<Washing> Washings { get; set; }
-        public DbSet<WashingStatus> WashingStatuses { get; set; }
-        public DbSet<WashingType> WashingTypes { get; set; }
+        public DbSet<Job> Washings { get; set; }
+        public DbSet<JobStatus> WashingStatuses { get; set; }
+        public DbSet<JobService> WashingTypes { get; set; }
         public DbSet<Test> Tests { get; set; }
     }
 }

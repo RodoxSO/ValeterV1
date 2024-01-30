@@ -8,9 +8,10 @@ namespace Valeter.API.Models
     public class Parking
     {
         public int ParkingId { get; set; }
+        public int ClientId { get; set; }
         public string ParkingCode { get; set; }
         public string ParkingName { get; set; }
         public string ParkingDescription { get; set; }
-        public string ParkingSpaceNumber { get; set; }
+        public string ParkingSpaceQuantity { get; set; }
     }
 }
