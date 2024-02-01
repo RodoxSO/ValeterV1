@@ -22,7 +22,7 @@ namespace Valeter.API.Controllers
         [HttpPost]
         public string Post()
         {
-            return "Teste de Post";
+            return "Test Post";
         }
 
         [HttpGet]
@@ -40,13 +40,13 @@ namespace Valeter.API.Controllers
         [HttpPut("id")]
         public string Put(int id)
         {
-            return $"Teste Put com id = {id}";
+            return $"Test Put with id = {id}";
         }
 
         [HttpDelete("id")]
         public string Delete(int id)
         {
-            return "Teste Delete com id = " + id;
+            return "Test Delete with id = " + id;
         }
     }
 }

@@ -3,7 +3,7 @@ using Valeter.API.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
-var connectionstring = builder.Configuration.GetConnectionString("MySqlServerConnectionDev");
+var connectionstring = builder.Configuration.GetConnectionString("MySqlServerConnection");
 
 // Add services to the container.
 builder.Services.AddDbContext<DataContext>(
